@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Quiz FGV - Questões 41 a 55 | Professor Moreira</title>
+<style>
+:root{--azul:#0d47a1;--claro:#eaf4ff;--verde:#16803c;--vermelho:#c62828;--cinza:#f5f7fa}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#dfefff;color:#152033}
+.app{max-width:760px;margin:auto;min-height:100vh;background:white;display:flex;flex-direction:column}
+header{background:var(--azul);color:white;padding:14px 16px;text-align:center;position:sticky;top:0;z-index:2}
+header b{font-size:19px} header small{display:block;margin-top:4px}
+main{padding:18px;flex:1}.card{background:var(--claro);border-radius:16px;padding:18px;box-shadow:0 2px 9px #0002}
+.meta{font-weight:bold;color:var(--azul);font-size:14px;margin-bottom:12px}.q{font-size:19px;line-height:1.48;white-space:pre-line}
+.opts{margin-top:16px}.opt{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;border:2px solid #b7c9df;border-radius:12px;background:white;font-size:17px;cursor:pointer}
+.opt.sel{border-color:var(--azul);background:#dbeaff}.opt.correct{border-color:var(--verde);background:#dff5e6}.opt.wrong{border-color:var(--vermelho);background:#fde3e3}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:12px;padding:13px 16px;font-size:16px;font-weight:bold;cursor:pointer;background:var(--azul);color:white;flex:1}.btn.secondary{background:#607d8b}.btn.reset{background:#8b3f91}.feedback{margin-top:16px;padding:14px;border-radius:12px;font-weight:bold;display:none}.feedback.ok{display:block;background:#dcf5e4;color:#12662e}.feedback.no{display:block;background:#fde2e2;color:#8d1d1d}
+.res{font-size:17px;line-height:1.55;white-space:pre-line}.answer{font-size:20px;font-weight:bold;color:var(--verde);margin-bottom:12px}
+nav{display:flex;gap:8px;padding:12px 18px;background:var(--cinza);position:sticky;bottom:0}.navbtn{flex:1;padding:12px;border:0;border-radius:10px;font-weight:bold;font-size:16px;background:#263b53;color:white}
+.counter{text-align:center;font-weight:bold;padding:5px;color:#42566d}.hidden{display:none}
+</style></head>
+<body><div class="app">
+<header><b>CURSO DE CONTABILIDADE PROFESSOR MOREIRA</b><small>FGV • Analista Contábil • Questões 41 a 55</small></header>
+<main><div id="screen"></div></main>
+<div class="counter" id="counter"></div>
+<nav><button class="navbtn" onclick="prev()">← Voltar</button><button class="navbtn" onclick="next()">Avançar →</button></nav>
+</div>
+<script>
+const Q=[
+{n:41,q:`Em 01/03/2025, uma livraria não tinha livros de contabilidade em seu estoque. Na data, ela adquiriu 40 exemplares do livro “Contabilidade” por R$ 3.200. Um funcionário foi buscar o livro no fornecedor por transporte de aplicativo, tendo pago R$ 80 pela corrida.
+
+Quando chegou na livraria, os livros foram expostos na vitrine por um vitrinista contratado especificamente para essa função, cujos honorários foram de R$ 200.
+
+Em março, 30 exemplares do livro foram vendidos pelo preço de R$ 120 cada.
+
+Assinale a opção que indica o lucro bruto da livraria com a venda dos livros.`,o:["R$ 940.","R$ 990.","R$ 1.000.","R$ 1.140.","R$ 1.200."],a:3,r:`Receita: 30 × R$ 120 = R$ 3.600.
+
+Custo do estoque: R$ 3.200 + R$ 80 de transporte = R$ 3.280. O transporte necessário para trazer o estoque à localização atual integra o custo.
+
+Custo unitário: R$ 3.280 ÷ 40 = R$ 82.
+CMV: 30 × R$ 82 = R$ 2.460.
+
+Os R$ 200 do vitrinista são gasto de venda/exposição e não integram o custo do estoque.
+
+Lucro bruto = R$ 3.600 − R$ 2.460 = R$ 1.140.
+
+Gabarito: D.`},
+{n:42,q:`Na emissão de debêntures com cláusula de conversibilidade em ações, terão direito de preferência para subscrição`,o:["os diretores.","os empregados.","os acionistas.","representantes do Governo.","aqueles que não têm, ainda, relação com a entidade."],a:2,r:`Debêntures conversíveis podem ser transformadas em ações e, portanto, podem diluir a participação dos atuais acionistas. A legislação societária assegura aos acionistas direito de preferência para a subscrição, observadas as regras aplicáveis.
+
+Gabarito: C — os acionistas.`},
+{n:43,q:`Em 31/12/2024, a Cia WWW reconheceu lucro líquido de R$ 200.000 em sua Demonstração do Resultado. A empresa distribuiu e pagou 25% desse lucro a seus acionistas, a título de dividendos, e reinvestiu o restante na própria empresa.
+
+Assinale a opção que indica o aumento do patrimônio líquido no balanço patrimonial da Cia WWW em 31/12/2024.`,o:["zero.","R$ 50.000.","R$ 150.000.","R$ 200.000.","R$ 250.000."],a:2,r:`Lucro líquido = R$ 200.000.
+Dividendos = 25% × R$ 200.000 = R$ 50.000.
+Parcela retida = R$ 200.000 − R$ 50.000 = R$ 150.000.
+
+Assim, o aumento líquido do patrimônio líquido é R$ 150.000.
+
+Gabarito: C.`},
+{n:44,q:`No patrimônio líquido de uma entidade, os valores recebidos decorrentes de transações de capital com os sócios e que não devem transitar pelo resultado como receitas são classificados como`,o:["reserva legal.","reserva estatutária.","reserva de capital.","reserva para contingências.","provisão para contingências."],a:2,r:`Valores decorrentes de determinadas transações de capital com os sócios, que não transitam pelo resultado como receitas, são classificados como reservas de capital.
+
+Reserva legal, estatutária e para contingências são reservas de lucros. Provisão para contingências é passivo.
+
+Gabarito: C.`},
+{n:45,q:`De acordo com o Pronunciamento Técnico CPC 00 (R2) - Estrutura Conceitual para Relatório Financeiro, o custo é uma restrição generalizada sobre as informações que podem ser fornecidas pelo relatório financeiro.
+
+Avalie:
+I. O relatório de informações financeiras impõe custos, e é importante que esses custos sejam justificados pelos benefícios de apresentar essas informações.
+II. Os fornecedores gastam a maior parte dos esforços de coleta, processamento, verificação e disseminação, mas, em última instância, os usuários arcam com esses custos na forma de retornos reduzidos.
+III. Os usuários podem incorrer em custos de análise e interpretação. Se as informações necessárias não são fornecidas, incorrem em custos de realizar análise incompleta.
+
+As afirmativas são, respectivamente,`,o:["V – V – V.","V – V – F.","V – F – V.","F – V – V.","V – F – F."],a:1,r:`Gabarito oficial da prova: B — V, V, F.
+
+Para este quiz, foi preservado o gabarito oficial fornecido no quadro de respostas da própria prova.`},
+{n:46,q:`Uma sociedade empresária tem a prática de pagar o salário de seus empregados a cada quinze dias.
+
+O montante relativo a salários em abril de 2025 era de R$ 600.000. A sociedade empresária pagou metade desse salário em 15/04/2025 e o restante, em 30/04/2025.
+
+Em 30/04/2025, a conta “salários a pagar”, no passivo era de`,o:["Zero.","R$ 300.000.","R$ 600.000.","R$ 1.200.000.","R$ 1.800.000."],a:0,r:`Salários de abril = R$ 600.000.
+15/04: pagamento de R$ 300.000.
+30/04: pagamento dos R$ 300.000 restantes.
+
+Ao final do dia 30/04, todo o salário do mês está pago. Salários a pagar = zero.
+
+Gabarito: A.`},
+{n:47,q:`Em 01/03/2025, uma sociedade empresarial efetuou um empréstimo de R$ 5.000 a um empregado. O empregado devolveu à sociedade empresarial, em 01/04/2025, R$ 5.200.
+
+A sociedade empresária reconheceu os R$ 200 como`,o:["despesa de salários.","despesa financeira.","receita financeira.","outras despesas.","outras receitas."],a:2,r:`A empresa emprestou R$ 5.000 e recebeu R$ 5.200.
+
+Diferença = R$ 200, correspondente à remuneração do capital emprestado. Para quem concedeu o empréstimo, os juros constituem receita financeira.
+
+Gabarito: C.`},
+{n:48,q:`No primeiro trimestre de 2025, uma loja de roupas reconheceu receita de vendas de R$ 500.000, para recebimento a partir do segundo trimestre. A loja estima inadimplência de 2%.
+
+Na demonstração do resultado da loja, a estimativa com a inadimplência deve ser reconhecida como`,o:["despesa financeira.","despesa operacional.","conta redutora da receita bruta.","conta redutora da receita líquida.","não há reconhecimento."],a:1,r:`Estimativa de inadimplência: 2% × R$ 500.000 = R$ 10.000.
+
+A perda esperada com créditos é reconhecida no resultado como despesa relacionada à operação e, no balanço, reduz o valor contábil das contas a receber.
+
+Gabarito: B — despesa operacional.`},
+{n:49,q:`Em 01/01/2025, uma sociedade empresária que prestava serviços de perícia adquiriu, à vista, um computador para ser utilizado em sua atividade fim por R$ 12.000.
+
+Em 31/01/2025, reconheceu despesa de depreciação de R$ 200 e despesa de salários de R$ 5.000, com pagamento previsto para fevereiro. Além disso, pagou antecipadamente o aluguel de fevereiro, de R$ 1.000.
+
+Na Demonstração dos Fluxos de Caixa, a atividade operacional consumiu, em janeiro, o seguinte montante:`,o:["R$ 1.000.","R$ 6.000.","R$ 12.000.","R$ 13.000.","R$ 18.000."],a:0,r:`Computador à vista (R$ 12.000): atividade de investimento.
+Depreciação (R$ 200): não movimenta caixa.
+Salários (R$ 5.000): serão pagos em fevereiro, portanto não consumiram caixa em janeiro.
+Aluguel antecipado: saída efetiva de R$ 1.000, classificada como operacional.
+
+Gabarito: A — R$ 1.000.`},
+{n:50,q:`No primeiro trimestre de 2025, uma sociedade empresária do setor industrial apresentou um expressivo aumento de caixa. A Demonstração dos Fluxos de Caixa indicava que o aumento foi ocasionado pela atividade de investimento.
+
+Uma possível causa para o aumento é um(a)`,o:["emissão de debêntures.","emissão e venda de ações.","aumento de capital social em dinheiro.","recebimentos de caixa decorrentes de royalties.","recebimento de caixa pela amortização de empréstimo concedido a terceiros."],a:4,r:`Emissão de debêntures, emissão de ações e aumento de capital em dinheiro são atividades de financiamento.
+
+O recebimento do principal de empréstimo anteriormente concedido a terceiros representa recuperação de aplicação e é fluxo de atividade de investimento.
+
+Gabarito: E.`},
+{n:51,q:`Em relação às notas explicativas, analise:
+I. cálculos de depreciação, amortização e exaustão
+II. constituição de provisões para encargos ou riscos
+III. ajustes para atender a perdas prováveis na realização de elementos do ativo
+
+De acordo com a Lei nº 6.404/76 e alterações, as notas explicativas devem indicar os critérios de avaliação que se afirma em`,o:["I, apenas.","I e II, apenas.","I e III, apenas.","II e III, apenas.","I, II e III."],a:4,r:`Os três itens se enquadram nas informações sobre critérios de avaliação e práticas contábeis relevantes que devem ser evidenciadas nas notas explicativas.
+
+Gabarito: E — I, II e III.`},
+{n:52,q:`A Demonstração do Valor Adicionado deve proporcionar informações relativas à riqueza criada pela entidade em determinado período e à forma como essa riqueza foi distribuída.
+
+Na segunda parte da demonstração, é mostrada a distribuição do valor adicionado pelos grupos a seguir, com exceção de um. Assinale-o.`,o:["Pessoal.","Impostos, taxas e contribuições.","Remuneração de Capitais Próprios.","Remuneração de capitais de terceiros.","Investimentos em sociedades controladas."],a:4,r:`A distribuição do valor adicionado contempla, entre outros: pessoal; impostos, taxas e contribuições; remuneração de capitais de terceiros; e remuneração de capitais próprios.
+
+Investimentos em sociedades controladas não é grupo de distribuição do valor adicionado.
+
+Gabarito: E.`},
+{n:53,q:`Uma conta que é apresentada na Demonstração das Mutações do Patrimônio Líquido e que afeta o total do patrimônio líquido é o(a)`,o:["aumento de capital social com a utilização de reservas.","reversão de reserva patrimonial para a conta de prejuízos acumulados.","reversão da reserva de lucros a realizar para a conta de dividendos a pagar.","transferência de valores de outros resultados abrangentes para o resultado do exercício.","apuração do lucro do período, antes do reconhecimento do imposto sobre a renda e contribuição social."],a:2,r:`Aumento de capital com reservas e outras transferências entre contas do próprio PL não alteram seu total.
+
+Quando a reserva de lucros a realizar é revertida para dividendos a pagar, o valor sai do PL e passa ao passivo. Assim, o total do patrimônio líquido é reduzido.
+
+Gabarito: C.`},
+{n:54,q:`Uma sociedade empresária adquiriu computadores no exterior para os seus empregados. O preço pago foi equivalente a R$ 10.000 e os impostos para importação foram de R$ 2.000.
+
+Os mesmos computadores poderiam ser adquiridos no Brasil por R$ 16.000.
+
+A sociedade empresária espera utilizar os computadores durante cinco anos e vendê-los por valor equivalente a R$ 3.000.
+
+Assinale a opção que indica a despesa de depreciação anual dos computadores.`,o:["R$ 1.800.","R$ 2.000.","R$ 2.400.","R$ 3.200.","R$ 3.600."],a:0,r:`Custo = R$ 10.000 + R$ 2.000 de impostos de importação = R$ 12.000.
+
+Valor depreciável = custo − valor residual:
+R$ 12.000 − R$ 3.000 = R$ 9.000.
+
+Depreciação anual = R$ 9.000 ÷ 5 = R$ 1.800.
+
+Gabarito: A.`},
+{n:55,q:`De acordo com o Pronunciamento Técnico CPC 04 (R1) - Ativo Intangível, um ativo intangível pode ser ou não amortizado.
+
+A amortização depende de se o ativo reconhecido`,o:["tem vida útil definida ou indefinida.","apresenta valor material ou imaterial.","foi adquirido à vista ou por meio de financiamento.","foi formado internamente ou adquirido de terceiros.","é utilizado na atividade operacional ou administrativa."],a:0,r:`Ativo intangível com vida útil definida é amortizado sistematicamente ao longo dessa vida útil.
+
+Ativo intangível com vida útil indefinida não é amortizado; fica sujeito às regras de teste de recuperabilidade e revisão da vida útil.
+
+Gabarito: A.`}
+];
+let i=0, side=0, selected={};
+function letters(j){return String.fromCharCode(65+j)}
+function render(){
+ const x=Q[i], s=document.getElementById("screen");
+ document.getElementById("counter").textContent=`Questão ${i+1} de ${Q.length} • ${side===0?"Pergunta":"Resolução"}`;
+ if(side===0){
+  s.innerHTML=`<div class="card"><div class="meta">QUESTÃO ${x.n} • FGV • Analista Contábil</div><div class="q">${x.q}</div><div class="opts">${x.o.map((v,j)=>`<button class="opt" id="o${j}" onclick="choose(${j})"><b>${letters(j)})</b> ${v}</button>`).join("")}</div><div id="fb" class="feedback"></div><div class="actions"><button class="btn" onclick="confirmAnswer()">Confirmar Resposta</button><button class="btn secondary" onclick="showRes()">Ver resolução</button><button class="btn reset" onclick="resetQuiz()">Reiniciar</button></div></div>`;
+  if(selected[i]!=null){choose(selected[i],true)}
+ } else {
+  s.innerHTML=`<div class="card"><div class="meta">RESOLUÇÃO • QUESTÃO ${x.n}</div><div class="answer">Gabarito: ${letters(x.a)}</div><div class="res">${x.r}</div><div class="actions"><button class="btn secondary" onclick="showQ()">← Voltar à questão</button><button class="btn reset" onclick="resetQuiz()">Reiniciar</button></div></div>`;
+ }
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function choose(j,silent=false){selected[i]=j;document.querySelectorAll(".opt").forEach((e,k)=>e.classList.toggle("sel",k===j));}
+function confirmAnswer(){
+ if(selected[i]==null){alert("Selecione uma alternativa.");return}
+ const x=Q[i], j=selected[i], fb=document.getElementById("fb");
+ document.querySelectorAll(".opt").forEach((e,k)=>{e.classList.remove("correct","wrong");if(k===x.a)e.classList.add("correct");if(k===j&&j!==x.a)e.classList.add("wrong")});
+ fb.className="feedback "+(j===x.a?"ok":"no");
+ fb.textContent=j===x.a?"🟢 Resposta correta!":"🔴 Resposta incorreta. Veja a resolução para entender o raciocínio.";
+}
+function showRes(){side=1;render()} function showQ(){side=0;render()}
+function next(){if(side===0){side=1}else if(i<Q.length-1){i++;side=0}else{alert("Você chegou ao final do quiz.")}render()}
+function prev(){if(side===1){side=0}else if(i>0){i--;side=1}render()}
+function resetQuiz(){if(confirm("Deseja reiniciar o quiz?")){i=0;side=0;selected={};render()}}
+render();
+</script></body></html>
