@@ -1,55 +1,1401 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Quiz 4 - Professor Moreira</title><style>
-:root{--azul:#0b5ed7;--azul2:#eaf4ff;--verde:#198754;--vermelho:#dc3545;--cinza:#f5f7fa;--texto:#172033}
-*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#dff1ff,#f8fbff);color:var(--texto)}
-.app{max-width:760px;margin:auto;min-height:100vh;padding:12px 12px 92px}
-.brand{background:#083b7a;color:white;border-radius:18px;padding:14px 16px;text-align:center;box-shadow:0 5px 18px #0002;margin-bottom:12px}
-.brand h1{font-size:21px;margin:0 0 5px}.brand .sub{font-size:15px;font-weight:700;color:#ffe66d}
-.card{background:white;border-radius:20px;padding:18px;box-shadow:0 5px 20px #0002;min-height:68vh}
-.meta{font-weight:800;color:var(--azul);font-size:15px;margin-bottom:10px}.title{font-size:22px;font-weight:900;margin-bottom:14px}
-.question{font-size:19px;line-height:1.45;font-weight:650;white-space:normal}
-.options{display:grid;gap:10px;margin-top:16px}
-.option{border:2px solid #cbd7e6;background:#fff;border-radius:14px;padding:13px;font-size:18px;line-height:1.35;text-align:left;cursor:pointer}
-.option.selected{border-color:var(--azul);background:var(--azul2)}
-.confirm{width:100%;margin-top:16px;border:0;border-radius:14px;padding:14px;font-size:18px;font-weight:900;background:var(--azul);color:white}
-.feedback{display:none;margin-top:14px;padding:13px;border-radius:12px;font-size:17px;font-weight:800}
-.feedback.ok{display:block;background:#d9f6e5;color:#075b2c}.feedback.bad{display:block;background:#ffe0e3;color:#8a1420}
-.resolution{font-size:19px;line-height:1.55}.resolution b{color:#073b78}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffee;backdrop-filter:blur(8px);border-top:1px solid #d7e1ec;padding:10px;display:flex;gap:8px;justify-content:center}
-.nav button{border:0;border-radius:12px;padding:12px 14px;font-size:16px;font-weight:900;background:#0b5ed7;color:white;min-width:78px}.nav .restart{background:#5b6470}
-.counter{text-align:center;font-weight:800;margin:10px;color:#456}
-.note{background:#fff3cd;border:1px solid #ffe69c;padding:10px;border-radius:10px;margin-top:12px;font-size:15px}
-@media(max-width:520px){.app{padding:8px 8px 88px}.card{padding:15px;min-height:72vh}.question,.resolution{font-size:17px}.option{font-size:16.5px;padding:12px}.brand h1{font-size:19px}.title{font-size:20px}}
-</style></head>
-<body><div class="app"><div class="brand"><h1>CURSO DE CONTABILIDADE PROFESSOR MOREIRA</h1><div class="sub">FGV • EXAME DE SUFICIÊNCIA DO CFC</div></div><div id="counter" class="counter"></div><main id="card" class="card"></main></div>
-<div class="nav"><button id="prev" onclick="prev()">← Voltar</button><button class="restart" onclick="restart()">↻ Reiniciar</button><button id="next" onclick="next()">Avançar →</button></div>
-<script>const DATA=[{"n": 57, "q": "Um curso de idiomas oferecia aulas de inglês, espanhol e japonês. Em 2024, a gerência do curso resolveu extinguir a oferta de aulas de japonês e espanhol, passando a oferecer apenas aulas de inglês. A reorganização dos cursos teve efeito material na natureza e no foco das operações do curso, de modo que foi constituída uma provisão para reestruturação. Assinale a opção que indica gastos que podem ser incluídos no valor da provisão.", "opts": ["(A) Novo treinamento da equipe permanente", "(B) Investimento em novos sistemas e redes de distribuição.", "(C) Gastos incrementais de marketing relacionado ao curso de inglês.", "(D) Indenização aos proprietários das salas onde eram ofertados os cursos e que deixaram de ser utilizadas."], "ans": 3, "res": "<b>Gabarito: D.</b><br><br>A provisão para reestruturação inclui somente desembolsos <b>diretamente decorrentes da reestruturação</b> e que não estejam associados às atividades continuadas da entidade.<br><br>A indenização relativa às salas que deixaram de ser utilizadas decorre diretamente da reestruturação. Treinamento, novos sistemas e marketing relacionam-se às operações futuras."}, {"n": 58, "q": "Em 01/01/2020, uma sociedade empresária adquiriu uma van para transportar os seus empregados por R$ 300.000. A vida útil foi estimada em 15 anos e não foi considerado valor residual. Em 2023, essa van apresentou diversos problemas que ocasionaram gastos de R$ 24.000 com reparos. Por conta dos problemas, a sociedade empresária decidiu comprar uma nova van e, em 31/12/2023, vendeu a antiga por R$ 250.000. O lucro obtido com a venda da van, considerando que a sociedade empresária utiliza o método da linha reta para depreciar os seus ativos imobilizados, foi de", "opts": ["(A) R$ 6.000.", "(B) R$ 10.000.", "(C) R$ 28.000.", "(D) R$ 30.000."], "ans": 3, "res": "<b>Gabarito: D.</b><br><br>Depreciação anual = R$ 300.000 ÷ 15 = <b>R$ 20.000</b>.<br>De 2020 a 2023: 4 anos × R$ 20.000 = <b>R$ 80.000</b>.<br>Valor contábil em 31/12/2023 = 300.000 − 80.000 = <b>R$ 220.000</b>.<br>Venda = R$ 250.000.<br><br><b>Lucro = 250.000 − 220.000 = R$ 30.000.</b><br><br>Os R$ 24.000 de reparos são despesa e não entram no cálculo do ganho na baixa."}, {"n": 59, "q": "Uma sociedade empresária elaborou a seguinte Demonstração do Resultado do Exercício:<br><br><b>[O quadro da DRE mencionado no enunciado não aparece visível no PDF fornecido.]</b><br><br>De acordo com a NBC TG 26 (R5) – APRESENTAÇÃO DAS DEMONSTRAÇÕES CONTÁBEIS, a demonstração é elaborada de acordo com o método da", "opts": ["(A) função da despesa e não é necessária divulgação adicional.", "(B) natureza da despesa e não é necessária divulgação adicional.", "(C) função da despesa e a sociedade empresária deve divulgar informação adicional sobre a natureza das despesas.", "(D) natureza da despesa e a sociedade empresária deve divulgar informação adicional sobre a função das despesas."], "ans": null, "res": "<b>Atenção à fonte:</b> no PDF fornecido, o enunciado diz “a seguinte Demonstração do Resultado do Exercício”, mas o quadro da DRE não está visível. Sem esse quadro, não é possível identificar com segurança se a apresentação é por <b>função</b> ou por <b>natureza</b> da despesa.<br><br><b>Regra importante:</b> quando a entidade classifica as despesas por <b>função</b>, deve divulgar informação adicional sobre a <b>natureza</b> das despesas.<br><br>Por fidelidade ao PDF, esta questão foi mantida sem marcar gabarito automaticamente."}, {"n": 60, "q": "Em 31/12/2023, uma loja de cosméticos apresentava os seguintes saldos em seu Balanço Patrimonial:<br><br>Disponibilidades: R$ 55.000;<br>Estoques: R$ 30.000;<br>Clientes: R$ 20.000;<br>Equipamentos de Informática: R$ 45.000;<br>Salários a pagar: R$ 15.000;<br>Empréstimos: R$ 35.000;<br>Capital Social: R$ 120.000;<br>Prejuízos Acumulados: R$ 20.000.<br><br>No primeiro trimestre de 2024, aconteceram os seguintes fatos:<br>• Venda, à vista, de todo o estoque por R$ 80.000;<br>• Recebimento do saldo dos clientes;<br>• Venda, à vista, dos equipamentos de informática por R$ 60.000;<br>• Pagamento dos salários do ano anterior;<br>• Pagamento do empréstimo bancário contraído;<br>• Reconhecimento e pagamento de despesas gerais por R$ 100.000.<br><br>Em relação ao primeiro trimestre de 2024, é correto afirmar que a atividade operacional", "opts": ["(A) gerou fluxo líquido de caixa no montante de R$ 10.000.", "(B) gerou fluxo líquido de caixa no montante de R$ 45.000.", "(C) consumiu fluxo líquido de caixa no montante de R$ 15.000.", "(D) consumiu fluxo líquido de caixa no montante de R$ 35.000."], "ans": 2, "res": "<b>Gabarito: C.</b><br><br>Considere apenas os fluxos <b>operacionais</b>:<br>+ Venda de estoque: R$ 80.000<br>+ Recebimento de clientes: R$ 20.000<br>− Pagamento de salários: R$ 15.000<br>− Despesas gerais: R$ 100.000<br><br><b>Fluxo operacional = 80.000 + 20.000 − 15.000 − 100.000 = − R$ 15.000.</b><br><br>Logo, a atividade operacional <b>consumiu R$ 15.000</b>. Venda de equipamentos é investimento; pagamento do empréstimo é financiamento."}];
-let screen=0, selected={};
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quiz 4 - Professor Moreira</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eaf5ff;
+    color:#172033;
+}
+
+.app{
+    max-width:760px;
+    margin:auto;
+    min-height:100vh;
+    padding:10px 10px 100px;
+}
+
+.head{
+    background:#073b7a;
+    color:white;
+    border-radius:18px;
+    padding:14px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.head h1{
+    font-size:20px;
+    margin:0 0 5px;
+}
+
+.head p{
+    margin:0;
+    color:#ffe66d;
+    font-weight:800;
+}
+
+.count{
+    text-align:center;
+    font-weight:800;
+    margin:10px;
+    color:#456;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:17px;
+    min-height:70vh;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+}
+
+.meta{
+    font-weight:900;
+    color:#0b5ed7;
+    margin-bottom:10px;
+}
+
+.title{
+    font-size:22px;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+.stem{
+    font-size:18px;
+    line-height:1.5;
+    font-weight:600;
+}
+
+.opts{
+    display:grid;
+    gap:9px;
+    margin-top:15px;
+}
+
+.opt{
+    width:100%;
+    border:2px solid #cbd7e6;
+    background:white;
+    border-radius:13px;
+    padding:12px;
+    text-align:left;
+    font-size:17px;
+    line-height:1.4;
+    cursor:pointer;
+}
+
+.opt.sel{
+    border-color:#0b5ed7;
+    background:#eaf4ff;
+}
+
+.confirm{
+    width:100%;
+    margin-top:15px;
+    border:0;
+    border-radius:13px;
+    padding:14px;
+    background:#0b5ed7;
+    color:white;
+    font-size:18px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.fb{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+.ok{
+    display:block;
+    background:#d9f6e5;
+    color:#075b2c;
+}
+
+.bad{
+    display:block;
+    background:#ffe0e3;
+    color:#8a1420;
+}
+
+.res{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.box{
+    background:#eaf4ff;
+    border-left:5px solid #0b5ed7;
+    padding:15px;
+    border-radius:10px;
+}
+
+.macete{
+    background:#fff3cd;
+    border-left:5px solid #ffc107;
+    padding:13px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.alerta{
+    background:#ffe0e3;
+    border-left:5px solid #dc3545;
+    padding:13px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(255,255,255,.96);
+    border-top:1px solid #d7e1ec;
+    padding:9px;
+    display:flex;
+    gap:7px;
+    justify-content:center;
+    z-index:100;
+}
+
+.nav button{
+    border:0;
+    border-radius:11px;
+    padding:12px;
+    font-size:15px;
+    font-weight:900;
+    background:#0b5ed7;
+    color:white;
+    cursor:pointer;
+}
+
+.nav .reset{background:#5b6470}
+.nav button:disabled{opacity:.4}
+
+@media(max-width:520px){
+    .card{padding:14px}
+    .stem,.res{font-size:16.5px}
+    .opt{font-size:16px}
+    .head h1{font-size:18px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="head">
+<h1>CURSO DE CONTABILIDADE PROFESSOR MOREIRA</h1>
+<p>FGV • EXAME DE SUFICIÊNCIA DO CFC</p>
+</div>
+
+<div id="count" class="count"></div>
+
+<main id="card" class="card"></main>
+
+</div>
+
+<div class="nav">
+<button id="prev" onclick="prev()">← Voltar</button>
+<button class="reset" onclick="resetQ()">↻ Reiniciar</button>
+<button id="next" onclick="next()">Avançar →</button>
+</div>
+
+<script>
+
+const DATA=[
+
+/* =========================
+QUESTÃO 46
+========================= */
+
+{
+n:46,
+
+stem:`De acordo com a NBC TG 27 (R4) – ATIVO IMOBILIZADO, o custo de um item do ativo imobilizado compreende, entre outros, quaisquer custos diretamente atribuíveis para colocar o ativo no local e as condições necessárias para ele ser capaz de funcionar da forma pretendida pela administração.
+
+Entre os custos diretamente atribuíveis estão os custos`,
+
+opts:[
+["A","de abertura de nova instalação."],
+["B","incorridos na introdução de novo produto ou serviço."],
+["C","com testes para verificar se o ativo está funcionando corretamente."],
+["D","da transferência das atividades para novo local ou para nova categoria de clientes."]
+],
+
+ans:"C",
+
+res:`
+<strong>GABARITO: C</strong><br><br>
+
+O custo do imobilizado inclui os gastos diretamente atribuíveis necessários para colocar o ativo:
+
+<br><br>
+
+<strong>• no local;</strong><br>
+<strong>• nas condições necessárias;</strong><br>
+<strong>• para funcionar da forma pretendida pela administração.</strong>
+
+<br><br>
+
+Os custos com testes para verificar se o ativo está funcionando corretamente são custos diretamente atribuíveis.
+
+<br><br>
+
+<strong>Resposta: C.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+Pergunte: esse gasto foi necessário para colocar o bem no local e em condições de funcionamento?<br><br>
+Se SIM, pode integrar o custo do imobilizado.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 47
+========================= */
+
+{
+n:47,
+
+stem:`Uma sociedade empresária pode elaborar sua Demonstração dos Fluxos de Caixa de acordo com o método direto ou com o método indireto.
+
+De acordo com a NBC TG 03 (R3) – DEMONSTRAÇÃO DOS FLUXOS DE CAIXA, a diferença entre as duas demonstrações elaboradas consiste somente na apresentação`,
+
+opts:[
+["A","da atividade operacional."],
+["B","da atividade de investimento."],
+["C","da atividade de financiamento."],
+["D","do caixa e equivalentes de caixa."]
+],
+
+ans:"A",
+
+res:`
+<strong>GABARITO: A</strong><br><br>
+
+A diferença entre o método direto e o método indireto está na forma de apresentação dos:
+
+<br><br>
+
+<strong>FLUXOS DE CAIXA DAS ATIVIDADES OPERACIONAIS.</strong>
+
+<br><br>
+
+As atividades de investimento e financiamento não mudam em função do método.
+
+<br><br>
+
+<strong>Resposta: A.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+DFC:<br><br>
+DIRETO × INDIRETO<br>
+→ diferença na atividade <strong>OPERACIONAL</strong>.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 48
+========================= */
+
+{
+n:48,
+
+stem:`Em 01/06/2024, uma joalheria adquiriu 40 anéis pelo valor unitário de R$ 800. O frete para a entrega e o seguro do transporte foram, respectivamente, de R$ 500 e R$ 1.600. Os valores foram pagos à vista pela joalheria.
+
+O custo do estoque no balanço patrimonial da joalheria, antes do início das vendas, é de`,
+
+opts:[
+["A","R$ 32.000."],
+["B","R$ 32.500."],
+["C","R$ 33.600."],
+["D","R$ 34.100."]
+],
+
+ans:"D",
+
+res:`
+<strong>GABARITO: D — R$34.100</strong><br><br>
+
+Primeiro calculamos o preço de aquisição:
+
+<br><br>
+
+<strong>40 × R$800 = R$32.000</strong>
+
+<br><br>
+
+Agora acrescentamos os gastos necessários para trazer os estoques à sua condição e localização atuais:
+
+<br><br>
+
+Aquisição = R$32.000<br>
+Frete = R$500<br>
+Seguro do transporte = R$1.600
+
+<br><br>
+
+<strong>
+R$32.000 + R$500 + R$1.600
+= R$34.100
+</strong>
+
+<br><br>
+
+<strong>Resposta: D.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+ESTOQUE:<br>
+Preço de compra<br>
++ frete<br>
++ seguro<br>
++ gastos diretamente atribuíveis<br>
+− descontos e abatimentos.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 49
+========================= */
+
+{
+n:49,
+
+stem:`Em 01/05/2022, uma loja de roupas pagou R$ 180.000 a terceiros, referentes ao aluguel antecipado de 3 anos do imóvel onde funcionava a sua loja, contados a partir da data de pagamento.
+
+Em 31/12/2023, a despesa antecipada de aluguel no ativo realizável a longo prazo da loja era`,
+
+opts:[
+["A","zero."],
+["B","R$ 20.000."],
+["C","R$ 60.000."],
+["D","R$ 80.000."]
+],
+
+ans:"B",
+
+res:`
+<strong>GABARITO: B — R$20.000</strong><br><br>
+
+Valor total:
+
+<br><br>
+
+<strong>R$180.000</strong>
+
+<br><br>
+
+Período:
+
+<br><br>
+
+<strong>36 meses</strong>
+
+<br><br>
+
+Aluguel mensal:
+
+<br><br>
+
+<strong>180.000 ÷ 36 = R$5.000</strong>
+
+<br><br>
+
+Em 31/12/2023, ainda restam 16 meses de contrato:
+
+<br><br>
+
+Janeiro/2024 a abril/2025.
+
+<br><br>
+
+Dos 16 meses restantes:
+
+<br><br>
+
+12 meses pertencem ao Ativo Circulante.
+
+<br><br>
+
+4 meses pertencem ao Realizável a Longo Prazo.
+
+<br><br>
+
+Logo:
+
+<br><br>
+
+<strong>4 × R$5.000 = R$20.000</strong>
+
+<br><br>
+
+<strong>Resposta: B.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 50
+========================= */
+
+{
+n:50,
+
+stem:`Em janeiro de 2024, a despesa relacionada a salários de uma sociedade empresária era de R$ 500.000. Desse valor, R$ 120.000 representava imposto de renda retido na fonte.
+
+Assinale a opção que indica o lançamento contábil realizado em 31/01/2024 para reconhecer os efeitos decorrentes do fato, considerando que os salários da entidade são pagos no 5º dia útil do mês seguinte ao do fato gerador.`,
+
+opts:[
+["A","D - Despesa de salários R$ 380.000 | D - Despesa de IR R$ 120.000 | C - Salários a pagar R$ 500.000"],
+["B","D - Despesa de salários R$ 380.000 | D - Despesa de IR R$ 120.000 | C - IR na fonte a recolher R$ 120.000 | C - Salários a pagar R$ 380.000"],
+["C","D - Despesa de salários R$ 500.000 | C - IR na fonte a recolher R$ 120.000 | C - Salários a pagar R$ 380.000"],
+["D","D - Despesa de salários R$ 500.000 | C - Salários a pagar R$ 500.000"]
+],
+
+ans:"C",
+
+res:`
+<strong>GABARITO: C</strong><br><br>
+
+A despesa total de salários é:
+
+<br><br>
+
+<strong>R$500.000</strong>
+
+<br><br>
+
+O IRRF não é uma despesa adicional da empresa.
+
+<br><br>
+
+Ele é retido do valor devido ao empregado.
+
+<br><br>
+
+Assim:
+
+<br><br>
+
+<strong>D – Despesa de salários ........ R$500.000</strong><br>
+<strong>C – IR na fonte a recolher ...... R$120.000</strong><br>
+<strong>C – Salários a pagar ............ R$380.000</strong>
+
+<br><br>
+
+Débitos = R$500.000<br>
+Créditos = R$500.000
+
+<br><br>
+
+<strong>Resposta: C.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 51
+========================= */
+
+{
+n:51,
+
+stem:`Assinale a opção que indica uma conta do passivo de uma entidade que não deve ser classificada como passivo circulante de acordo com a NBC TG 26 (R5) – APRESENTAÇÃO DAS DEMONSTRAÇÕES CONTÁBEIS.`,
+
+opts:[
+["A","Imposto de renda diferido."],
+["B","Empréstimo contraído de diretor."],
+["C","Receita recebida antecipadamente."],
+["D","Adiantamento recebido de sociedade controlada."]
+],
+
+ans:"A",
+
+res:`
+<strong>GABARITO: A</strong><br><br>
+
+A NBC TG 26 estabelece tratamento específico para ativos e passivos fiscais diferidos.
+
+<br><br>
+
+O:
+
+<br><br>
+
+<strong>IMPOSTO DE RENDA DIFERIDO</strong>
+
+<br><br>
+
+não deve ser classificado como circulante.
+
+<br><br>
+
+Portanto:
+
+<br><br>
+
+<strong>Resposta: A.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+IMPOSTO DIFERIDO → NÃO CIRCULANTE.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 52
+========================= */
+
+{
+n:52,
+
+stem:`Uma loja de roupas funciona em um imóvel alugado de terceiros. A despesa com aluguel é classificada na Demonstração do Valor Adicionado da loja como`,
+
+opts:[
+["A","insumos adquiridos de terceiros."],
+["B","remuneração de capitais próprios."],
+["C","remuneração de capitais de terceiros."],
+["D","depreciação, amortização e exaustão."]
+],
+
+ans:"C",
+
+res:`
+<strong>GABARITO: C</strong><br><br>
+
+Na distribuição da riqueza apresentada pela DVA, os aluguéis pagos são classificados como:
+
+<br><br>
+
+<strong>REMUNERAÇÃO DE CAPITAIS DE TERCEIROS.</strong>
+
+<br><br>
+
+Nesse grupo também aparecem, conforme o caso, itens como juros.
+
+<br><br>
+
+<strong>Resposta: C.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+DVA — Distribuição da riqueza:<br><br>
+ALUGUEL → capital de terceiros.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 53
+========================= */
+
+{
+n:53,
+
+stem:`Um hospital localizado no Centro da cidade adquiriu um terreno ao lado de seu prédio para a construção de um estacionamento para ser utilizado, exclusivamente, pelos pacientes, de modo a oferecer melhor atendimento.
+
+No Balanço Patrimonial do hospital, o terreno deve ser classificado como`,
+
+opts:[
+["A","Ativo Imobilizado."],
+["B","Ativo Realizável a Longo Prazo."],
+["C","Propriedade para investimento."],
+["D","Ativo não circulante mantido para a venda."]
+],
+
+ans:"A",
+
+res:`
+<strong>GABARITO: A</strong><br><br>
+
+O terreno será utilizado na atividade da própria entidade.
+
+<br><br>
+
+O estacionamento atenderá os pacientes do hospital e está relacionado à manutenção das atividades da entidade.
+
+<br><br>
+
+Logo:
+
+<br><br>
+
+<strong>ATIVO IMOBILIZADO.</strong>
+
+<br><br>
+
+<strong>Resposta: A.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 54
+========================= */
+
+{
+n:54,
+
+stem:`Com relação às Demonstrações Financeiras, de acordo com a Lei nº 6.404/76 e modificações, avalie as afirmativas a seguir e assinale (V) para a verdadeira e (F) para a falsa.
+
+( ) As demonstrações de cada exercício serão publicadas com a indicação dos valores correspondentes das demonstrações do exercício anterior.
+
+( ) Nas demonstrações, não poderá haver agrupamento de contas semelhantes.
+
+( ) As demonstrações financeiras registrarão a destinação dos lucros segundo a proposta dos órgãos da administração, e o valor será considerado definitivo.
+
+( ) As demonstrações serão complementadas por notas explicativas e outros quadros analíticos ou demonstrações contábeis necessárias para esclarecimento da situação patrimonial e dos resultados do exercício.
+
+As afirmativas são, respectivamente,`,
+
+opts:[
+["A","V – V – F – F."],
+["B","V – F – F – V."],
+["C","F – V – F – V."],
+["D","V – F – V – F."]
+],
+
+ans:"B",
+
+res:`
+<strong>GABARITO: B</strong><br><br>
+
+Vamos analisar:
+
+<br><br>
+
+<strong>I — VERDADEIRA.</strong><br>
+As demonstrações apresentam valores correspondentes do exercício anterior.
+
+<br><br>
+
+<strong>II — FALSA.</strong><br>
+A legislação admite agrupamento de contas semelhantes dentro das condições legais.
+
+<br><br>
+
+<strong>III — FALSA.</strong><br>
+A proposta de destinação dos lucros não se torna definitiva simplesmente por constar das demonstrações.
+
+<br><br>
+
+<strong>IV — VERDADEIRA.</strong><br>
+As demonstrações são complementadas por notas explicativas e outras informações necessárias.
+
+<br><br>
+
+Sequência:
+
+<br><br>
+
+<strong>V – F – F – V</strong>
+
+<br><br>
+
+<strong>Resposta: B.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 55
+========================= */
+
+{
+n:55,
+
+stem:`O ativo fiscal diferido é o valor do tributo sobre o lucro recuperável em período futuro relacionado ao que se afirma a seguir, com exceção de`,
+
+opts:[
+["A","diferenças temporárias dedutíveis."],
+["B","diferenças temporárias tributáveis."],
+["C","compensação futura de prejuízos fiscais não utilizados."],
+["D","compensação futura de créditos fiscais não utilizados."]
+],
+
+ans:"B",
+
+res:`
+<strong>GABARITO: B</strong><br><br>
+
+A questão pede a <strong>EXCEÇÃO</strong>.
+
+<br><br>
+
+Ativo fiscal diferido está relacionado, entre outros, a:
+
+<br><br>
+
+<strong>• diferenças temporárias dedutíveis;</strong><br>
+<strong>• prejuízos fiscais não utilizados;</strong><br>
+<strong>• créditos fiscais não utilizados.</strong>
+
+<br><br>
+
+Já as:
+
+<br><br>
+
+<strong>DIFERENÇAS TEMPORÁRIAS TRIBUTÁVEIS</strong>
+
+<br><br>
+
+estão relacionadas, em regra, ao <strong>passivo fiscal diferido</strong>.
+
+<br><br>
+
+<strong>Resposta: B.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 56
+========================= */
+
+{
+n:56,
+
+stem:`A Cia. Verde Amarela é uma empresa brasileira que vende objetos relacionados à Seleção Masculina de Futebol. Em 31/12/2022, a empresa apresentou lucro líquido de R$ 800.000 em sua Demonstração do Resultado do Exercício. No entanto, estimou que o lucro apresentaria uma redução de 80% em 2023.
+
+Com a finalidade de segregar uma parcela do lucro em 2022, a Cia. Verde Amarela poderia constituir, em 31/12/2022,`,
+
+opts:[
+["A","reserva para contingências."],
+["B","reserva de lucros a realizar."],
+["C","reserva de lucros para expansão."],
+["D","ajuste de avaliação patrimonial."]
+],
+
+ans:"A",
+
+res:`
+<strong>GABARITO: A</strong><br><br>
+
+A situação apresentada envolve expectativa de redução relevante do lucro em exercício futuro.
+
+<br><br>
+
+A Lei nº 6.404/76 prevê a possibilidade de destinar parte do lucro líquido para:
+
+<br><br>
+
+<strong>RESERVA PARA CONTINGÊNCIAS</strong>
+
+<br><br>
+
+com a finalidade de compensar, em exercício futuro, diminuição do lucro decorrente de perda julgada provável.
+
+<br><br>
+
+<strong>Resposta: A.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 57
+========================= */
+
+{
+n:57,
+
+stem:`Um curso de idiomas oferecia aulas de inglês, espanhol e japonês. Em 2024, a gerência do curso resolveu extinguir a oferta de aulas de japonês e espanhol, passando a oferecer apenas aulas de inglês. A reorganização dos cursos teve efeito material na natureza e no foco das operações do curso, de modo que foi constituída uma provisão para reestruturação.
+
+Assinale a opção que indica gastos que podem ser incluídos no valor da provisão.`,
+
+opts:[
+["A","Novo treinamento da equipe permanente"],
+["B","Investimento em novos sistemas e redes de distribuição."],
+["C","Gastos incrementais de marketing relacionado ao curso de inglês."],
+["D","Indenização aos proprietários das salas onde eram ofertados os cursos e que deixaram de ser utilizadas."]
+],
+
+ans:"D",
+
+res:`
+<strong>GABARITO: D</strong><br><br>
+
+A provisão para reestruturação inclui somente os gastos diretamente decorrentes da reestruturação.
+
+<br><br>
+
+Eles devem ser:
+
+<br><br>
+
+<strong>• necessariamente ocasionados pela reestruturação;</strong><br>
+<strong>• não associados às atividades continuadas da entidade.</strong>
+
+<br><br>
+
+A indenização relacionada às salas que deixaram de ser utilizadas decorre diretamente da reestruturação.
+
+<br><br>
+
+Treinamento, novos sistemas e marketing estão relacionados às operações futuras/continuadas.
+
+<br><br>
+
+<strong>Resposta: D.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 58
+========================= */
+
+{
+n:58,
+
+stem:`Em 01/01/2020, uma sociedade empresária adquiriu uma van para transportar os seus empregados por R$ 300.000. A vida útil foi estimada em 15 anos e não foi considerado valor residual.
+
+Em 2023, essa van apresentou diversos problemas que ocasionaram gastos de R$ 24.000 com reparos. Por conta dos problemas, a sociedade empresária decidiu comprar uma nova van e, em 31/12/2023, vendeu a antiga por R$ 250.000.
+
+O lucro obtido com a venda da van, considerando que a sociedade empresária utiliza o método da linha reta para depreciar os seus ativos imobilizados, foi de`,
+
+opts:[
+["A","R$ 6.000."],
+["B","R$ 10.000."],
+["C","R$ 28.000."],
+["D","R$ 30.000."]
+],
+
+ans:"D",
+
+res:`
+<strong>GABARITO: D — R$30.000</strong><br><br>
+
+Custo da van:
+
+<br><br>
+
+<strong>R$300.000</strong>
+
+<br><br>
+
+Vida útil:
+
+<br><br>
+
+<strong>15 anos</strong>
+
+<br><br>
+
+Depreciação anual:
+
+<br><br>
+
+<strong>300.000 ÷ 15 = R$20.000</strong>
+
+<br><br>
+
+De 01/01/2020 até 31/12/2023:
+
+<br><br>
+
+<strong>4 anos</strong>
+
+<br><br>
+
+Depreciação acumulada:
+
+<br><br>
+
+<strong>4 × R$20.000 = R$80.000</strong>
+
+<br><br>
+
+Valor contábil:
+
+<br><br>
+
+<strong>R$300.000 − R$80.000 = R$220.000</strong>
+
+<br><br>
+
+Preço de venda:
+
+<br><br>
+
+<strong>R$250.000</strong>
+
+<br><br>
+
+Lucro na venda:
+
+<br><br>
+
+<strong>
+R$250.000 − R$220.000
+= R$30.000
+</strong>
+
+<br><br>
+
+Os R$24.000 de reparos não alteram esse cálculo como parte do custo contábil da van.
+
+<br><br>
+
+<strong>Resposta: D.</strong>
+`
+},
+
+/* =========================
+QUESTÃO 59
+========================= */
+
+{
+n:59,
+
+stem:`Uma sociedade empresária elaborou a seguinte Demonstração do Resultado do Exercício:
+
+[ATENÇÃO: a demonstração/tabela que acompanha esta questão não apareceu na extração textual do PDF.]
+
+De acordo com a NBC TG 26 (R5) – APRESENTAÇÃO DAS DEMONSTRAÇÕES CONTÁBEIS, a demonstração é elaborada de acordo com o método da`,
+
+opts:[
+["A","função da despesa e não é necessária divulgação adicional."],
+["B","natureza da despesa e não é necessária divulgação adicional."],
+["C","função da despesa e a sociedade empresária deve divulgar informação adicional sobre a natureza das despesas."],
+["D","natureza da despesa e a sociedade empresária deve divulgar informação adicional sobre a função das despesas."]
+],
+
+ans:"C",
+
+res:`
+<strong>GABARITO UTILIZADO: C</strong><br><br>
+
+Quando a entidade apresenta as despesas classificadas por sua <strong>função</strong>, como:
+
+<br><br>
+
+• custo das vendas;<br>
+• despesas com vendas;<br>
+• despesas administrativas;
+
+<br><br>
+
+ela utiliza o:
+
+<br><br>
+
+<strong>MÉTODO DA FUNÇÃO DA DESPESA.</strong>
+
+<br><br>
+
+Nesse caso, deve divulgar informação adicional sobre a <strong>natureza das despesas</strong>.
+
+<br><br>
+
+Portanto:
+
+<br><br>
+
+<strong>Resposta: C.</strong>
+
+<div class="alerta">
+<strong>ATENÇÃO:</strong><br><br>
+A tabela/DRE que acompanha a questão 59 não apareceu na extração textual do PDF. Por isso, o elemento visual original deve ser conferido no PDF para validar integralmente a classificação.
+</div>
+`
+},
+
+/* =========================
+QUESTÃO 60
+========================= */
+
+{
+n:60,
+
+stem:`Em 31/12/2023, uma loja de cosméticos apresentava os seguintes saldos em seu Balanço Patrimonial:
+
+Disponibilidades: R$ 55.000;
+Estoques: R$ 30.000;
+Clientes: R$ 20.000;
+Equipamentos de Informática: R$ 45.000;
+Salários a pagar: R$ 15.000;
+Empréstimos: R$ 35.000;
+Capital Social: R$ 120.000;
+Prejuízos Acumulados: R$ 20.000.
+
+No primeiro trimestre de 2024, aconteceram os seguintes fatos:
+
+• Venda, à vista, de todo o estoque por R$ 80.000;
+• Recebimento do saldo dos clientes;
+• Venda, à vista, dos equipamentos de informática por R$ 60.000;
+• Pagamento dos salários do ano anterior;
+• Pagamento do empréstimo bancário contraído;
+• Reconhecimento e pagamento de despesas gerais por R$ 100.000.
+
+Em relação ao primeiro trimestre de 2024, é correto afirmar que a atividade operacional`,
+
+opts:[
+["A","gerou fluxo líquido de caixa no montante de R$ 10.000."],
+["B","gerou fluxo líquido de caixa no montante de R$ 45.000."],
+["C","consumiu fluxo líquido de caixa no montante de R$ 15.000."],
+["D","consumiu fluxo líquido de caixa no montante de R$ 35.000."]
+],
+
+ans:"C",
+
+res:`
+<strong>GABARITO: C — consumiu R$15.000</strong><br><br>
+
+Vamos considerar somente os fluxos das:
+
+<br><br>
+
+<strong>ATIVIDADES OPERACIONAIS</strong>
+
+<br><br>
+
+Entradas operacionais:
+
+<br><br>
+
+Venda do estoque à vista = <strong>+ R$80.000</strong><br>
+Recebimento de clientes = <strong>+ R$20.000</strong>
+
+<br><br>
+
+Total de entradas:
+
+<br><br>
+
+<strong>R$100.000</strong>
+
+<br><br>
+
+Saídas operacionais:
+
+<br><br>
+
+Pagamento de salários = <strong>− R$15.000</strong><br>
+Despesas gerais = <strong>− R$100.000</strong>
+
+<br><br>
+
+Total de saídas:
+
+<br><br>
+
+<strong>R$115.000</strong>
+
+<br><br>
+
+Fluxo operacional líquido:
+
+<br><br>
+
+<strong>
+R$100.000 − R$115.000
+= − R$15.000
+</strong>
+
+<br><br>
+
+Portanto, a atividade operacional:
+
+<br><br>
+
+<strong>CONSUMIU R$15.000 DE CAIXA.</strong>
+
+<br><br>
+
+A venda dos equipamentos é atividade de <strong>investimento</strong>.
+
+<br><br>
+
+O pagamento do principal do empréstimo é atividade de <strong>financiamento</strong>.
+
+<br><br>
+
+<strong>Resposta: C.</strong>
+
+<div class="macete">
+<strong>MACETE PROFESSOR MOREIRA:</strong><br><br>
+Não misture as três atividades da DFC:<br><br>
+
+OPERACIONAL → atividade principal.<br>
+INVESTIMENTO → compra/venda de imobilizado e investimentos.<br>
+FINANCIAMENTO → capital e empréstimos.
+</div>
+`
+}
+
+];
+
+
+/* =========================================================
+FUNCIONAMENTO DO QUIZ
+========================================================= */
+
+let screen=0;
+let sel={};
+
 const total=DATA.length*2;
+
+function escnl(s){
+    return s.replace(/\n/g,"<br>");
+}
+
 function render(){
- const qi=Math.floor(screen/2), isRes=screen%2===1, d=DATA[qi];
- document.getElementById('counter').textContent=`Tela ${screen+1}/${total} • Questão ${d.n}`;
- let c=document.getElementById('card');
- if(!isRes){
-   let opts=d.opts.map((o,i)=>`<button class="option ${selected[qi]===i?'selected':''}" onclick="choose(${qi},${i})">${o}</button>`).join('');
-   c.innerHTML=`<div class="meta">FGV • Exame de Suficiência do CFC</div><div class="title">Questão ${d.n}</div><div class="question">${d.q}</div><div class="options">${opts}</div><button class="confirm" onclick="confirmAnswer(${qi})">Confirmar Resposta</button><div id="fb" class="feedback"></div>`;
- }else{
-   c.innerHTML=`<div class="meta">FGV • Exame de Suficiência do CFC</div><div class="title">Resolução • Questão ${d.n}</div><div class="resolution">${d.res}</div>`;
- }
- document.getElementById('prev').disabled=screen===0;
- document.getElementById('next').disabled=screen===total-1;
- window.scrollTo({top:0,behavior:'smooth'});
+
+    const qi=Math.floor(screen/2);
+    const resolucao=screen%2===1;
+    const d=DATA[qi];
+
+    document.getElementById("count").textContent=
+    `Tela ${screen+1} de ${total} • Questão ${d.n}`;
+
+    const card=document.getElementById("card");
+
+    if(!resolucao){
+
+        let alternativas="";
+
+        d.opts.forEach((o,i)=>{
+
+            const classe=
+            sel[qi]===i ? "opt sel" : "opt";
+
+            alternativas+=`
+            <button
+            class="${classe}"
+            onclick="choose(${qi},${i})">
+
+            <strong>(${o[0]})</strong>
+            ${escnl(o[1])}
+
+            </button>
+            `;
+        });
+
+        card.innerHTML=`
+
+        <div class="meta">
+        FGV • Exame de Suficiência do CFC
+        </div>
+
+        <div class="title">
+        Questão ${d.n}
+        </div>
+
+        <div class="stem">
+        ${escnl(d.stem)}
+        </div>
+
+        <div class="opts">
+        ${alternativas}
+        </div>
+
+        <button
+        class="confirm"
+        onclick="check(${qi})">
+        Confirmar Resposta
+        </button>
+
+        <div id="fb" class="fb"></div>
+        `;
+
+    }else{
+
+        card.innerHTML=`
+
+        <div class="meta">
+        FGV • Exame de Suficiência do CFC
+        </div>
+
+        <div class="title">
+        Resolução • Questão ${d.n}
+        </div>
+
+        <div class="res">
+        <div class="box">
+        ${d.res}
+        </div>
+        </div>
+        `;
+    }
+
+    document.getElementById("prev").disabled=
+    screen===0;
+
+    document.getElementById("next").disabled=
+    screen===total-1;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
-function choose(qi,i){selected[qi]=i;render()}
-function confirmAnswer(qi){
- const d=DATA[qi], fb=document.getElementById('fb');
- if(selected[qi]===undefined){fb.className='feedback bad';fb.textContent='Selecione uma alternativa antes de confirmar.';return}
- if(d.ans===null){fb.className='feedback ok';fb.textContent='Questão com elemento visual ausente no PDF. Consulte a tela de resolução.';return}
- if(selected[qi]===d.ans){fb.className='feedback ok';fb.textContent='🟢 Resposta correta!'} else {fb.className='feedback bad';fb.textContent='🔴 Resposta incorreta. Veja a resolução na próxima tela.'}
+
+
+/* SELECIONAR */
+
+function choose(q,i){
+
+    sel[q]=i;
+
+    render();
 }
-function next(){if(screen<total-1){screen++;render()}}
-function prev(){if(screen>0){screen--;render()}}
-function restart(){screen=0;selected={};render()}
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
-let sx=0;document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});document.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(dx<-70)next();if(dx>70)prev()},{passive:true});
+
+
+/* CONFIRMAR */
+
+function check(q){
+
+    const d=DATA[q];
+
+    const feedback=
+    document.getElementById("fb");
+
+    if(sel[q]===undefined){
+
+        feedback.className="fb bad";
+
+        feedback.innerHTML=
+        "Selecione uma alternativa antes de confirmar.";
+
+        return;
+    }
+
+    const letra=
+    d.opts[sel[q]][0];
+
+    if(letra===d.ans){
+
+        feedback.className="fb ok";
+
+        feedback.innerHTML=
+        "🟢 RESPOSTA CORRETA!";
+
+    }else{
+
+        feedback.className="fb bad";
+
+        feedback.innerHTML=
+        "🔴 RESPOSTA INCORRETA.<br><br>Veja a resolução na próxima tela.";
+    }
+}
+
+
+/* AVANÇAR */
+
+function next(){
+
+    if(screen<total-1){
+
+        screen++;
+
+        render();
+    }
+}
+
+
+/* VOLTAR */
+
+function prev(){
+
+    if(screen>0){
+
+        screen--;
+
+        render();
+    }
+}
+
+
+/* REINICIAR */
+
+function resetQ(){
+
+    screen=0;
+
+    sel={};
+
+    render();
+}
+
+
+/* SETAS DO TECLADO */
+
+document.addEventListener(
+"keydown",
+function(evento){
+
+    if(evento.key==="ArrowRight"){
+        next();
+    }
+
+    if(evento.key==="ArrowLeft"){
+        prev();
+    }
+});
+
+
+/* SWIPE NO CELULAR */
+
+let inicioToque=0;
+
+document.addEventListener(
+"touchstart",
+function(evento){
+
+    inicioToque=
+    evento.touches[0].clientX;
+
+},
+{passive:true}
+);
+
+document.addEventListener(
+"touchend",
+function(evento){
+
+    const fimToque=
+    evento.changedTouches[0].clientX;
+
+    const diferenca=
+    fimToque-inicioToque;
+
+    if(diferenca < -70){
+        next();
+    }
+
+    if(diferenca > 70){
+        prev();
+    }
+
+},
+{passive:true}
+);
+
+
+/* INICIAR */
+
 render();
-</script></body></html>
+
+</script>
+
+</body>
+</html>
